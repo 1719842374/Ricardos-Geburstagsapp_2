@@ -45,16 +45,16 @@ const Index = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-party-navy via-party-blue to-party-slate relative overflow-hidden">
-      {/* Floating party elements */}
+    <div className="min-h-screen bg-gradient-to-br from-black via-blue-900 to-slate-900 relative overflow-hidden">
+      {/* Erwachsene Party-Elemente */}
       <div className="floating-elements absolute inset-0 pointer-events-none">
-        <div className="absolute top-[5%] left-[5%] text-4xl animate-float">🎉</div>
-        <div className="absolute top-[15%] right-[10%] text-3xl animate-float" style={{animationDelay: '1s'}}>🍺</div>
+        <div className="absolute top-[5%] left-[5%] text-4xl animate-float">🥂</div>
+        <div className="absolute top-[15%] right-[10%] text-3xl animate-float" style={{animationDelay: '1s'}}>🍾</div>
         <div className="absolute top-[25%] left-[15%] text-2xl animate-float" style={{animationDelay: '2s'}}>⚡</div>
         <div className="absolute top-[35%] right-[20%] text-3xl animate-float" style={{animationDelay: '0.5s'}}>🎯</div>
         <div className="absolute top-[45%] left-[8%] text-2xl animate-float" style={{animationDelay: '1.5s'}}>🎵</div>
         <div className="absolute top-[55%] right-[5%] text-4xl animate-float" style={{animationDelay: '2.5s'}}>🔥</div>
-        <div className="absolute top-[65%] left-[12%] text-2xl animate-float" style={{animationDelay: '0.8s'}}>🍾</div>
+        <div className="absolute top-[65%] left-[12%] text-2xl animate-float" style={{animationDelay: '0.8s'}}>🍷</div>
         <div className="absolute top-[75%] right-[15%] text-3xl animate-float" style={{animationDelay: '3s'}}>🎂</div>
         <div className="absolute top-[85%] left-[20%] text-2xl animate-float" style={{animationDelay: '1.2s'}}>⭐</div>
       </div>
@@ -66,18 +66,18 @@ const Index = () => {
         
         <section id="start" className="py-20 px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-2xl">
+            <Card className="bg-black/80 backdrop-blur-sm border border-white/20 shadow-2xl">
               <CardHeader>
-                <CardTitle className="text-4xl font-dancing text-party-navy mb-4">
-                  Du bist eingeladen! 🎉
+                <CardTitle className="text-4xl font-dancing text-white mb-4">
+                  Du bist eingeladen! 🥂
                 </CardTitle>
-                <CardDescription className="text-xl text-gray-700">
-                  <i className="fas fa-glass-cheers text-party-orange mr-2"></i>
+                <CardDescription className="text-xl text-white/80">
+                  <i className="fas fa-glass-cheers text-blue-400 mr-2"></i>
                   Feiere mit uns einen unvergesslichen Abend auf Mallorca!
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
-                <p className="text-2xl font-dancing text-party-blue italic">
+                <p className="text-2xl font-dancing text-blue-400 italic">
                   "Viva la Vida - Es gibt keine Regeln für das Abenteuer namens Leben"
                 </p>
                 
@@ -93,7 +93,7 @@ const Index = () => {
                 
                 <Button 
                   size="lg" 
-                  className="bg-gradient-to-r from-party-orange to-party-red hover:from-party-red hover:to-party-orange text-white font-bold py-4 px-8 rounded-full transform hover:scale-105 transition-all duration-300 shadow-lg"
+                  className="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-bold py-4 px-8 rounded-lg transform hover:scale-105 transition-all duration-300 shadow-lg"
                   onClick={() => document.getElementById('rsvp')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   <i className="fas fa-check mr-2"></i>
@@ -114,7 +114,7 @@ const Index = () => {
         <ChatSection />
       </main>
 
-      <footer className="bg-black/80 text-white py-8 text-center relative z-10">
+      <footer className="bg-black/80 text-white py-8 text-center relative z-10 border-t border-white/20">
         <p className="font-montserrat">© 2025 Geburtstagsfeier. Alle Rechte vorbehalten.</p>
       </footer>
     </div>

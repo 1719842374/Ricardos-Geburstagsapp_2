@@ -17,7 +17,7 @@ const NavigationMenu = ({ activeSection }: NavigationMenuProps) => {
     { id: "playlist", label: "Playlist", icon: "fas fa-music" },
     { id: "photo-gallery", label: "Fotogalerie", icon: "fas fa-images" },
     { id: "guestbook", label: "Gästebuch", icon: "fas fa-book" },
-    { id: "wishlist", label: "Wunschliste", icon: "fas fa-gift" },
+    { id: "wishlist", label: "Wunschliste", icon: "fas fa-cocktail" },
     { id: "chat", label: "Chat", icon: "fas fa-comments" },
   ];
 
@@ -28,15 +28,6 @@ const NavigationMenu = ({ activeSection }: NavigationMenuProps) => {
 
   return (
     <>
-      {/* Fixed Mar des Teix Logo - Top Left */}
-      <div className="fixed top-4 left-4 z-50">
-        <img 
-          src="https://i.imgur.com/uTmX35f.jpg" 
-          alt="Mar des Teix" 
-          className="w-16 h-16 rounded-full object-cover shadow-lg border-2 border-white/50"
-        />
-      </div>
-
       {/* Mobile Menu Button */}
       <Button
         className="fixed top-4 right-4 z-50 md:hidden bg-black/80 text-white hover:bg-black rounded-full p-3 shadow-lg backdrop-blur-sm"
@@ -48,24 +39,36 @@ const NavigationMenu = ({ activeSection }: NavigationMenuProps) => {
       {/* Desktop Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-40 bg-black/90 backdrop-blur-md border-b border-white/10 hidden md:block">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-center py-4 pl-20">
-            <ul className="flex space-x-1">
-              {menuItems.map((item) => (
-                <li key={item.id}>
-                  <button
-                    onClick={() => scrollToSection(item.id)}
-                    className={`px-4 py-3 rounded-lg transition-all duration-300 flex items-center space-x-2 font-medium ${
-                      activeSection === item.id
-                        ? 'bg-gradient-to-r from-orange-500 to-red-600 text-white shadow-lg shadow-orange-500/25'
-                        : 'text-white/80 hover:bg-white/10 hover:text-white'
-                    }`}
-                  >
-                    <i className={`${item.icon} text-sm`}></i>
-                    <span className="text-sm">{item.label}</span>
-                  </button>
-                </li>
-              ))}
-            </ul>
+          <div className="flex items-center py-4">
+            {/* Mar des Teix Logo links positioniert */}
+            <div className="flex items-center mr-8">
+              <img 
+                src="https://i.imgur.com/uTmX35f.jpg" 
+                alt="Mar des Teix" 
+                className="w-12 h-12 rounded-full object-cover shadow-lg border-2 border-white/50"
+              />
+            </div>
+            
+            {/* Navigation Items zentriert */}
+            <div className="flex-1 flex justify-center">
+              <ul className="flex space-x-1">
+                {menuItems.map((item) => (
+                  <li key={item.id}>
+                    <button
+                      onClick={() => scrollToSection(item.id)}
+                      className={`px-4 py-3 rounded-lg transition-all duration-300 flex items-center space-x-2 font-medium ${
+                        activeSection === item.id
+                          ? 'bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow-lg shadow-blue-500/25'
+                          : 'text-white/80 hover:bg-white/10 hover:text-white'
+                      }`}
+                    >
+                      <i className={`${item.icon} text-sm`}></i>
+                      <span className="text-sm">{item.label}</span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </nav>
@@ -73,6 +76,15 @@ const NavigationMenu = ({ activeSection }: NavigationMenuProps) => {
       {/* Mobile Navigation */}
       {isOpen && (
         <nav className="fixed inset-0 z-40 bg-black/95 backdrop-blur-md md:hidden">
+          {/* Logo auch im mobilen Menü */}
+          <div className="absolute top-4 left-4">
+            <img 
+              src="https://i.imgur.com/uTmX35f.jpg" 
+              alt="Mar des Teix" 
+              className="w-12 h-12 rounded-full object-cover shadow-lg border-2 border-white/50"
+            />
+          </div>
+          
           <div className="flex flex-col items-center justify-center h-full space-y-6 pt-20">
             {menuItems.map((item) => (
               <button
@@ -80,7 +92,7 @@ const NavigationMenu = ({ activeSection }: NavigationMenuProps) => {
                 onClick={() => scrollToSection(item.id)}
                 className={`px-8 py-4 rounded-lg transition-all duration-300 flex items-center space-x-3 text-lg font-medium ${
                   activeSection === item.id
-                    ? 'bg-gradient-to-r from-orange-500 to-red-600 text-white shadow-lg shadow-orange-500/25'
+                    ? 'bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow-lg shadow-blue-500/25'
                     : 'text-white/80 hover:bg-white/10 hover:text-white'
                 }`}
               >

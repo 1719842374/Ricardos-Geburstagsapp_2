@@ -23,12 +23,12 @@ const PlaylistSection = () => {
   return (
     <section id="playlist" className="py-20 px-4">
       <div className="max-w-4xl mx-auto">
-        <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-2xl">
+        <Card className="bg-black/80 backdrop-blur-sm border border-white/20 shadow-2xl">
           <CardHeader className="text-center">
-            <CardTitle className="text-4xl font-dancing text-party-purple mb-4">
+            <CardTitle className="text-4xl font-dancing text-white mb-4">
               Playlist-Wünsche 🎵
             </CardTitle>
-            <p className="text-lg text-gray-700">
+            <p className="text-lg text-white/80">
               Welche Songs sollen auf der Party gespielt werden? Teile uns deine Musikwünsche mit!
             </p>
           </CardHeader>
@@ -52,11 +52,12 @@ const PlaylistSection = () => {
                 onChange={(e) => setMusicWish(e.target.value)}
                 placeholder="Deine Songwünsche hier eintragen..."
                 rows={4}
+                className="bg-white/10 border-white/20 text-white placeholder:text-white/60"
               />
               <div className="text-center">
                 <Button 
                   onClick={handleSubmit}
-                  className="bg-gradient-to-r from-party-green to-party-blue hover:from-party-blue hover:to-party-green text-white font-bold py-3 px-6 rounded-full shadow-lg"
+                  className="bg-gradient-to-r from-slate-700 to-slate-900 hover:from-slate-600 hover:to-slate-800 text-white font-bold py-3 px-6 rounded-lg shadow-lg"
                 >
                   <i className="fas fa-music mr-2"></i>
                   Musikwunsch absenden

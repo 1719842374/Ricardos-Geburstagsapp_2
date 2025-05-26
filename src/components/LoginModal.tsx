@@ -28,23 +28,23 @@ const LoginModal = ({ onLogin }: LoginModalProps) => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-party-pink via-party-purple to-party-blue flex items-center justify-center p-4 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-party-navy via-party-blue to-party-slate flex items-center justify-center p-4 relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-10 left-10 text-6xl animate-float">🎉</div>
-        <div className="absolute top-20 right-20 text-5xl animate-float" style={{animationDelay: '1s'}}>🎊</div>
-        <div className="absolute bottom-20 left-20 text-4xl animate-float" style={{animationDelay: '2s'}}>🎈</div>
-        <div className="absolute bottom-10 right-10 text-5xl animate-float" style={{animationDelay: '0.5s'}}>🥳</div>
-        <div className="absolute top-1/2 left-10 text-3xl animate-float" style={{animationDelay: '1.5s'}}>✨</div>
+        <div className="absolute top-20 right-20 text-5xl animate-float" style={{animationDelay: '1s'}}>🍺</div>
+        <div className="absolute bottom-20 left-20 text-4xl animate-float" style={{animationDelay: '2s'}}>🎯</div>
+        <div className="absolute bottom-10 right-10 text-5xl animate-float" style={{animationDelay: '0.5s'}}>🔥</div>
+        <div className="absolute top-1/2 left-10 text-3xl animate-float" style={{animationDelay: '1.5s'}}>⚡</div>
         <div className="absolute top-1/3 right-10 text-4xl animate-float" style={{animationDelay: '2.5s'}}>🎵</div>
       </div>
 
       <Card className="w-full max-w-md bg-white/95 backdrop-blur-sm border-0 shadow-2xl relative z-10">
         <CardHeader className="text-center space-y-4">
-          <div className="mx-auto w-20 h-20 bg-gradient-to-br from-party-pink to-party-purple rounded-full flex items-center justify-center text-3xl animate-pulse-slow">
+          <div className="mx-auto w-20 h-20 bg-gradient-to-br from-party-orange to-party-red rounded-full flex items-center justify-center text-3xl animate-pulse-slow">
             🎂
           </div>
-          <CardTitle className="text-3xl font-dancing bg-gradient-to-r from-party-pink to-party-purple bg-clip-text text-transparent">
+          <CardTitle className="text-3xl font-dancing bg-gradient-to-r from-party-orange to-party-red bg-clip-text text-transparent">
             Willkommen zur Geburtstagsfeier!
           </CardTitle>
           <CardDescription className="text-lg text-gray-600">
@@ -59,7 +59,7 @@ const LoginModal = ({ onLogin }: LoginModalProps) => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               onKeyPress={handleKeyPress}
-              className="text-center text-lg py-3 border-2 border-party-purple/20 focus:border-party-purple"
+              className="text-center text-lg py-3 border-2 border-party-blue/20 focus:border-party-blue"
             />
             {error && (
               <p className="text-red-500 text-sm text-center">{error}</p>
@@ -68,7 +68,7 @@ const LoginModal = ({ onLogin }: LoginModalProps) => {
           
           <Button 
             onClick={handleLogin}
-            className="w-full bg-gradient-to-r from-party-pink to-party-purple hover:from-party-purple hover:to-party-pink text-white font-bold py-3 rounded-full transform hover:scale-105 transition-all duration-300 shadow-lg"
+            className="w-full bg-gradient-to-r from-party-orange to-party-red hover:from-party-red hover:to-party-orange text-white font-bold py-3 rounded-full transform hover:scale-105 transition-all duration-300 shadow-lg"
             size="lg"
           >
             <i className="fas fa-sign-in-alt mr-2"></i>

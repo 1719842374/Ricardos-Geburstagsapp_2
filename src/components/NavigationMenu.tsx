@@ -30,7 +30,7 @@ const NavigationMenu = ({ activeSection }: NavigationMenuProps) => {
     <>
       {/* Mobile Menu Button */}
       <Button
-        className="fixed top-4 right-4 z-50 md:hidden bg-white/90 text-party-purple hover:bg-party-purple hover:text-white rounded-full p-3 shadow-lg"
+        className="fixed top-4 right-4 z-50 md:hidden bg-white/90 text-party-navy hover:bg-party-navy hover:text-white rounded-full p-3 shadow-lg"
         onClick={() => setIsOpen(!isOpen)}
       >
         <i className={`fas ${isOpen ? 'fa-times' : 'fa-bars'}`}></i>
@@ -39,14 +39,17 @@ const NavigationMenu = ({ activeSection }: NavigationMenuProps) => {
       {/* Desktop Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-sm shadow-lg hidden md:block">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between py-4">
-            <div className="flex items-center space-x-2">
+          <div className="flex items-center justify-between py-3">
+            <div className="flex items-center space-x-3">
               <img 
                 src="https://i.imgur.com/uTmX35f.jpg" 
                 alt="Logo" 
                 className="w-12 h-12 rounded-full object-cover"
               />
-              <span className="font-dancing text-2xl text-party-purple">Viva la Vida</span>
+              <div className="flex flex-col">
+                <span className="font-dancing text-xl text-party-navy leading-tight">Viva la Vida</span>
+                <span className="text-xs text-party-slate">Finca Mar d'es Teix</span>
+              </div>
             </div>
             
             <ul className="flex space-x-1">
@@ -54,10 +57,10 @@ const NavigationMenu = ({ activeSection }: NavigationMenuProps) => {
                 <li key={item.id}>
                   <button
                     onClick={() => scrollToSection(item.id)}
-                    className={`px-4 py-2 rounded-full transition-all duration-300 flex items-center space-x-2 ${
+                    className={`px-3 py-2 rounded-full transition-all duration-300 flex items-center space-x-2 ${
                       activeSection === item.id
-                        ? 'bg-gradient-to-r from-party-pink to-party-purple text-white shadow-lg'
-                        : 'text-gray-700 hover:bg-party-purple/10 hover:text-party-purple'
+                        ? 'bg-gradient-to-r from-party-orange to-party-red text-white shadow-lg'
+                        : 'text-gray-700 hover:bg-party-navy/10 hover:text-party-navy'
                     }`}
                   >
                     <i className={`${item.icon} text-sm`}></i>
@@ -80,8 +83,8 @@ const NavigationMenu = ({ activeSection }: NavigationMenuProps) => {
                 onClick={() => scrollToSection(item.id)}
                 className={`px-8 py-4 rounded-full transition-all duration-300 flex items-center space-x-3 text-lg ${
                   activeSection === item.id
-                    ? 'bg-gradient-to-r from-party-pink to-party-purple text-white shadow-lg'
-                    : 'text-gray-700 hover:bg-party-purple/10 hover:text-party-purple'
+                    ? 'bg-gradient-to-r from-party-orange to-party-red text-white shadow-lg'
+                    : 'text-gray-700 hover:bg-party-navy/10 hover:text-party-navy'
                 }`}
               >
                 <i className={`${item.icon} text-xl`}></i>

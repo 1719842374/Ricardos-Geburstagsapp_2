@@ -39,12 +39,12 @@ const HeroBanner = () => {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: "url('https://i.imgur.com/tCF1m0g.png')",
-          filter: 'brightness(0.7)'
+          filter: 'brightness(0.6)'
         }}
       ></div>
       
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-party-pink/30 via-party-purple/30 to-party-blue/30"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-party-navy/40 via-party-blue/40 to-party-slate/40"></div>
       
       {/* Content */}
       <div className="relative z-10 text-center text-white px-4 max-w-4xl">

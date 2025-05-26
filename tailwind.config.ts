@@ -68,12 +68,14 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				party: {
-					'pink': '#FF6B9D',
-					'purple': '#8B5CF6',
-					'blue': '#3B82F6',
-					'yellow': '#FCD34D',
-					'orange': '#F97316',
-					'green': '#10B981',
+					'blue': '#1E40AF',
+					'navy': '#1E3A8A',
+					'slate': '#475569',
+					'orange': '#EA580C',
+					'red': '#DC2626',
+					'green': '#059669',
+					'gray': '#6B7280',
+					'charcoal': '#374151'
 				}
 			},
 			borderRadius: {

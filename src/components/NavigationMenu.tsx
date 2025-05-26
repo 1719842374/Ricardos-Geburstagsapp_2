@@ -28,43 +28,40 @@ const NavigationMenu = ({ activeSection }: NavigationMenuProps) => {
 
   return (
     <>
+      {/* Fixed Mar des Teix Logo - Top Left */}
+      <div className="fixed top-4 left-4 z-50">
+        <img 
+          src="https://i.imgur.com/uTmX35f.jpg" 
+          alt="Mar des Teix" 
+          className="w-16 h-16 rounded-full object-cover shadow-lg border-2 border-white/50"
+        />
+      </div>
+
       {/* Mobile Menu Button */}
       <Button
-        className="fixed top-4 right-4 z-50 md:hidden bg-white/90 text-party-navy hover:bg-party-navy hover:text-white rounded-full p-3 shadow-lg"
+        className="fixed top-4 right-4 z-50 md:hidden bg-black/80 text-white hover:bg-black rounded-full p-3 shadow-lg backdrop-blur-sm"
         onClick={() => setIsOpen(!isOpen)}
       >
         <i className={`fas ${isOpen ? 'fa-times' : 'fa-bars'}`}></i>
       </Button>
 
       {/* Desktop Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-sm shadow-lg hidden md:block">
+      <nav className="fixed top-0 left-0 right-0 z-40 bg-black/90 backdrop-blur-md border-b border-white/10 hidden md:block">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between py-3">
-            <div className="flex items-center space-x-3">
-              <img 
-                src="https://i.imgur.com/uTmX35f.jpg" 
-                alt="Logo" 
-                className="w-12 h-12 rounded-full object-cover"
-              />
-              <div className="flex flex-col">
-                <span className="font-dancing text-xl text-party-navy leading-tight">Viva la Vida</span>
-                <span className="text-xs text-party-slate">Finca Mar d'es Teix</span>
-              </div>
-            </div>
-            
+          <div className="flex items-center justify-center py-4 pl-20">
             <ul className="flex space-x-1">
               {menuItems.map((item) => (
                 <li key={item.id}>
                   <button
                     onClick={() => scrollToSection(item.id)}
-                    className={`px-3 py-2 rounded-full transition-all duration-300 flex items-center space-x-2 ${
+                    className={`px-4 py-3 rounded-lg transition-all duration-300 flex items-center space-x-2 font-medium ${
                       activeSection === item.id
-                        ? 'bg-gradient-to-r from-party-orange to-party-red text-white shadow-lg'
-                        : 'text-gray-700 hover:bg-party-navy/10 hover:text-party-navy'
+                        ? 'bg-gradient-to-r from-orange-500 to-red-600 text-white shadow-lg shadow-orange-500/25'
+                        : 'text-white/80 hover:bg-white/10 hover:text-white'
                     }`}
                   >
                     <i className={`${item.icon} text-sm`}></i>
-                    <span className="text-sm font-medium">{item.label}</span>
+                    <span className="text-sm">{item.label}</span>
                   </button>
                 </li>
               ))}
@@ -75,20 +72,20 @@ const NavigationMenu = ({ activeSection }: NavigationMenuProps) => {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <nav className="fixed inset-0 z-40 bg-white/95 backdrop-blur-sm md:hidden">
-          <div className="flex flex-col items-center justify-center h-full space-y-6">
+        <nav className="fixed inset-0 z-40 bg-black/95 backdrop-blur-md md:hidden">
+          <div className="flex flex-col items-center justify-center h-full space-y-6 pt-20">
             {menuItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`px-8 py-4 rounded-full transition-all duration-300 flex items-center space-x-3 text-lg ${
+                className={`px-8 py-4 rounded-lg transition-all duration-300 flex items-center space-x-3 text-lg font-medium ${
                   activeSection === item.id
-                    ? 'bg-gradient-to-r from-party-orange to-party-red text-white shadow-lg'
-                    : 'text-gray-700 hover:bg-party-navy/10 hover:text-party-navy'
+                    ? 'bg-gradient-to-r from-orange-500 to-red-600 text-white shadow-lg shadow-orange-500/25'
+                    : 'text-white/80 hover:bg-white/10 hover:text-white'
                 }`}
               >
                 <i className={`${item.icon} text-xl`}></i>
-                <span className="font-medium">{item.label}</span>
+                <span>{item.label}</span>
               </button>
             ))}
           </div>

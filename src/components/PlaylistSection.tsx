@@ -13,23 +13,23 @@ const PlaylistSection = () => {
     if (musicWish.trim()) {
       console.log("Music Wish:", musicWish);
       toast({
-        title: "Musikwunsch gesendet!",
-        description: "Danke für deinen Vorschlag! 🎵"
+        title: "Track Request Submitted!",
+        description: "Thanks for your suggestion! 🎵"
       });
       setMusicWish("");
     }
   };
 
   return (
-    <section id="playlist" className="py-20 px-4">
+    <section id="playlist" className="py-20 px-4 bg-gradient-to-b from-festival-night to-black">
       <div className="max-w-4xl mx-auto">
-        <Card className="bg-black/80 backdrop-blur-sm border border-white/20 shadow-2xl">
+        <Card className="bg-black/80 backdrop-blur-sm border border-festival-coral/30 shadow-2xl">
           <CardHeader className="text-center">
-            <CardTitle className="text-4xl font-dancing text-white mb-4">
-              Playlist-Wünsche 🎵
+            <CardTitle className="text-5xl font-bebas text-festival-sand mb-4 tracking-wider">
+              FESTIVAL PLAYLIST 🎧
             </CardTitle>
-            <p className="text-lg text-white/80">
-              Welche Songs sollen auf der Party gespielt werden? Teile uns deine Musikwünsche mit!
+            <p className="text-lg text-festival-warm font-poppins">
+              What tracks should pump up the Finca? Drop your House Music requests!
             </p>
           </CardHeader>
           <CardContent className="space-y-6">
@@ -50,17 +50,17 @@ const PlaylistSection = () => {
               <Textarea
                 value={musicWish}
                 onChange={(e) => setMusicWish(e.target.value)}
-                placeholder="Deine Songwünsche hier eintragen..."
+                placeholder="Your house tracks, deep vibes, festival anthems..."
                 rows={4}
-                className="bg-white/10 border-white/20 text-white placeholder:text-white/60"
+                className="bg-festival-night/50 border-festival-coral/30 text-white placeholder:text-festival-warm/60 font-roboto"
               />
               <div className="text-center">
                 <Button 
                   onClick={handleSubmit}
-                  className="bg-gradient-to-r from-slate-700 to-slate-900 hover:from-slate-600 hover:to-slate-800 text-white font-bold py-3 px-6 rounded-lg shadow-lg"
+                  className="bg-gradient-to-r from-festival-sunset to-festival-coral hover:from-festival-coral hover:to-festival-glow text-white font-bebas text-lg py-3 px-8 rounded-full shadow-lg tracking-wider transform hover:scale-105 transition-all duration-300"
                 >
                   <i className="fas fa-music mr-2"></i>
-                  Musikwunsch absenden
+                  SUBMIT TRACK
                 </Button>
               </div>
             </div>

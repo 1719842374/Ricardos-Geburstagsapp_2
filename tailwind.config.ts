@@ -22,6 +22,10 @@ export default {
 			fontFamily: {
 				'montserrat': ['Montserrat', 'sans-serif'],
 				'dancing': ['Dancing Script', 'cursive'],
+				'bebas': ['Bebas Neue', 'cursive'],
+				'poppins': ['Poppins', 'sans-serif'],
+				'playfair': ['Playfair Display', 'serif'],
+				'roboto': ['Roboto', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -67,15 +71,16 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				party: {
-					'blue': '#1E40AF',
-					'navy': '#1E3A8A',
-					'slate': '#475569',
-					'orange': '#EA580C',
-					'red': '#DC2626',
-					'green': '#059669',
-					'gray': '#6B7280',
-					'charcoal': '#374151'
+				festival: {
+					'sunset': '#FF6B35',
+					'coral': '#F7931E',
+					'sand': '#FFD23F',
+					'ocean': '#06A77D',
+					'palm': '#005F56',
+					'sky': '#4A90E2',
+					'night': '#2C3E50',
+					'warm': '#E8B4A0',
+					'glow': '#F39C12'
 				}
 			},
 			borderRadius: {
@@ -104,16 +109,27 @@ export default {
 					'0%, 100%': { transform: 'translateY(0px)' },
 					'50%': { transform: 'translateY(-10px)' }
 				},
-				'pulse-slow': {
-					'0%, 100%': { opacity: '1' },
-					'50%': { opacity: '0.5' }
+				'pulse-glow': {
+					'0%, 100%': { boxShadow: '0 0 20px rgba(255, 107, 53, 0.3)' },
+					'50%': { boxShadow: '0 0 40px rgba(255, 107, 53, 0.6)' }
+				},
+				'wave': {
+					'0%': { transform: 'rotate(0deg)' },
+					'10%': { transform: 'rotate(14deg)' },
+					'20%': { transform: 'rotate(-8deg)' },
+					'30%': { transform: 'rotate(14deg)' },
+					'40%': { transform: 'rotate(-4deg)' },
+					'50%': { transform: 'rotate(10deg)' },
+					'60%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(0deg)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'float': 'float 3s ease-in-out infinite',
-				'pulse-slow': 'pulse-slow 2s ease-in-out infinite'
+				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+				'wave': 'wave 2s ease-in-out infinite'
 			}
 		}
 	},

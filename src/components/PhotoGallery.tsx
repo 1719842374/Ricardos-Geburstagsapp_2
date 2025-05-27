@@ -13,7 +13,6 @@ const PhotoGallery = () => {
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedFiles(e.target.files);
     if (e.target.files && e.target.files.length > 0) {
-      // Simuliere Upload und zeige Bilder an
       const newImages: string[] = [];
       Array.from(e.target.files).forEach((file) => {
         const reader = new FileReader();
@@ -27,27 +26,27 @@ const PhotoGallery = () => {
       });
       
       toast({
-        title: "Dateien hochgeladen!",
-        description: `${e.target.files.length} Datei(en) erfolgreich hinzugefügt. 📸`
+        title: "Fotos hochgeladen!",
+        description: `${e.target.files.length} Foto(s) erfolgreich hinzugefügt. 📸`
       });
     }
   };
 
   return (
-    <section id="photo-gallery" className="py-20 px-4">
+    <section id="photo-gallery" className="py-20 px-4 bg-gradient-to-b from-mallorca-pine/10 to-mallorca-palm/20">
       <div className="max-w-6xl mx-auto">
-        <Card className="bg-black/80 backdrop-blur-sm border border-white/20 shadow-2xl">
+        <Card className="bg-mallorca-white/95 backdrop-blur-sm border-0 shadow-2xl">
           <CardHeader className="text-center">
-            <CardTitle className="text-4xl font-dancing text-white mb-4">
+            <CardTitle className="text-4xl font-poppins font-bold text-mallorca-sea mb-4">
               Fotogalerie 📸
             </CardTitle>
-            <p className="text-lg text-white/80">
-              Teile deine besten Momente mit Ricardo und anderen Gästen!
+            <p className="text-lg text-mallorca-sea font-poppins">
+              Wenn Du noch Fotos aus alten Zeiten mit Ricardo hast, kannst Du sie gerne hier hochladen 😊
             </p>
           </CardHeader>
           <CardContent className="space-y-6">
-            <div className="border-2 border-dashed border-white/30 rounded-lg p-8 text-center hover:border-white/60 transition-colors">
-              <i className="fas fa-cloud-upload-alt text-4xl text-blue-400 mb-4"></i>
+            <div className="border-2 border-dashed border-mallorca-palm/30 rounded-lg p-8 text-center hover:border-mallorca-palm/60 transition-colors bg-mallorca-ocean/5">
+              <i className="fas fa-cloud-upload-alt text-4xl text-mallorca-ocean mb-4"></i>
               <Input
                 type="file"
                 accept="image/*,video/*"
@@ -62,7 +61,7 @@ const PhotoGallery = () => {
               >
                 <Button 
                   type="button"
-                  className="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-bold py-3 px-6 rounded-lg shadow-lg"
+                  className="bg-gradient-to-r from-mallorca-ocean to-mallorca-sea hover:from-mallorca-sea hover:to-mallorca-ocean text-white font-poppins font-bold py-3 px-6 rounded-lg shadow-lg"
                   asChild
                 >
                   <span>
@@ -72,16 +71,16 @@ const PhotoGallery = () => {
                 </Button>
               </label>
               {selectedFiles && (
-                <p className="mt-4 text-sm text-white/60">
+                <p className="mt-4 text-sm text-mallorca-sea/60 font-poppins">
                   {selectedFiles.length} Datei(en) ausgewählt
                 </p>
               )}
             </div>
             
             {/* Hochgeladene Bilder anzeigen */}
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="imageContainer">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {uploadedImages.map((image, index) => (
-                <div key={index} className="aspect-square rounded-lg overflow-hidden shadow-lg">
+                <div key={index} className="aspect-square rounded-lg overflow-hidden shadow-lg border-2 border-mallorca-palm/20">
                   <img 
                     src={image} 
                     alt={`Uploaded ${index + 1}`}
@@ -93,14 +92,14 @@ const PhotoGallery = () => {
               {/* Placeholder für weitere Uploads */}
               {uploadedImages.length === 0 && (
                 <>
-                  <div className="aspect-square bg-gradient-to-br from-black/40 to-blue-900/40 rounded-lg flex items-center justify-center border border-white/20">
-                    <i className="fas fa-image text-3xl text-white/40"></i>
+                  <div className="aspect-square bg-gradient-to-br from-mallorca-ocean/20 to-mallorca-sea/20 rounded-lg flex items-center justify-center border border-mallorca-palm/30">
+                    <i className="fas fa-image text-3xl text-mallorca-sea/40"></i>
                   </div>
-                  <div className="aspect-square bg-gradient-to-br from-blue-900/40 to-black/40 rounded-lg flex items-center justify-center border border-white/20">
-                    <i className="fas fa-video text-3xl text-white/40"></i>
+                  <div className="aspect-square bg-gradient-to-br from-mallorca-pine/20 to-mallorca-palm/20 rounded-lg flex items-center justify-center border border-mallorca-palm/30">
+                    <i className="fas fa-video text-3xl text-mallorca-sea/40"></i>
                   </div>
-                  <div className="aspect-square bg-gradient-to-br from-black/40 to-blue-900/40 rounded-lg flex items-center justify-center border border-white/20">
-                    <i className="fas fa-plus text-3xl text-white/40"></i>
+                  <div className="aspect-square bg-gradient-to-br from-mallorca-ocean/20 to-mallorca-pine/20 rounded-lg flex items-center justify-center border border-mallorca-palm/30">
+                    <i className="fas fa-plus text-3xl text-mallorca-sea/40"></i>
                   </div>
                 </>
               )}

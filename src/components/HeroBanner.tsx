@@ -34,7 +34,7 @@ const HeroBanner = () => {
 
   return (
     <div className="relative h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-20">
-      {/* Festival Background mit Finca */}
+      {/* Finca Background ohne blauen Filter */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
@@ -42,8 +42,8 @@ const HeroBanner = () => {
         }}
       ></div>
       
-      {/* Festival Sunset Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-festival-sunset/30 via-festival-coral/20 to-festival-night/60"></div>
+      {/* Grün-blaues Mallorca Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-mallorca-palm/20 via-mallorca-ocean/30 to-mallorca-sea/40"></div>
       
       {/* Floating Palm Trees */}
       <div className="absolute inset-0 pointer-events-none">
@@ -55,42 +55,42 @@ const HeroBanner = () => {
       
       {/* Content */}
       <div className="relative z-10 text-center text-white px-4 max-w-4xl">
-        <h1 className="text-7xl md:text-9xl font-bebas mb-6 tracking-wider text-festival-sand drop-shadow-2xl">
-          FINCA FESTIVAL
+        <h1 className="text-7xl md:text-9xl font-poppins font-bold mb-6 tracking-wider text-mallorca-white drop-shadow-2xl">
+          VIVA LA VIDA
         </h1>
         
         <div className="text-3xl md:text-4xl mb-4 font-poppins font-light tracking-wide">
-          <span className="text-festival-coral">23. AUGUST 2025</span>
+          <span className="text-mallorca-palm">23. AUGUST 2025</span>
         </div>
         
-        <div className="text-xl md:text-2xl mb-8 font-roboto font-light opacity-90">
-          House Music • Sunset • Mallorca Vibes
+        <div className="text-xl md:text-2xl mb-8 font-poppins font-light opacity-90">
+          Feier mit uns einen unvergesslichen Abend auf Mallorca!
         </div>
         
-        {/* Festival Countdown */}
-        <div className="bg-black/50 backdrop-blur-lg rounded-2xl p-6 md:p-8 mb-8 border border-festival-coral/30 animate-pulse-glow">
+        {/* Countdown */}
+        <div className="bg-black/50 backdrop-blur-lg rounded-2xl p-6 md:p-8 mb-8 border border-mallorca-palm/30 animate-pulse-glow">
           <div className="grid grid-cols-4 gap-4 text-center">
             <div className="space-y-2">
-              <div className="text-4xl md:text-5xl font-bebas text-festival-sand">{timeLeft.days}</div>
-              <div className="text-sm md:text-base font-poppins text-festival-coral">DAYS</div>
+              <div className="text-4xl md:text-5xl font-poppins font-bold text-mallorca-white">{timeLeft.days}</div>
+              <div className="text-sm md:text-base font-poppins text-mallorca-palm">TAGE</div>
             </div>
             <div className="space-y-2">
-              <div className="text-4xl md:text-5xl font-bebas text-festival-sand">{timeLeft.hours}</div>
-              <div className="text-sm md:text-base font-poppins text-festival-coral">HOURS</div>
+              <div className="text-4xl md:text-5xl font-poppins font-bold text-mallorca-white">{timeLeft.hours}</div>
+              <div className="text-sm md:text-base font-poppins text-mallorca-palm">STUNDEN</div>
             </div>
             <div className="space-y-2">
-              <div className="text-4xl md:text-5xl font-bebas text-festival-sand">{timeLeft.minutes}</div>
-              <div className="text-sm md:text-base font-poppins text-festival-coral">MINS</div>
+              <div className="text-4xl md:text-5xl font-poppins font-bold text-mallorca-white">{timeLeft.minutes}</div>
+              <div className="text-sm md:text-base font-poppins text-mallorca-palm">MIN</div>
             </div>
             <div className="space-y-2">
-              <div className="text-4xl md:text-5xl font-bebas text-festival-sand">{timeLeft.seconds}</div>
-              <div className="text-sm md:text-base font-poppins text-festival-coral">SECS</div>
+              <div className="text-4xl md:text-5xl font-poppins font-bold text-mallorca-white">{timeLeft.seconds}</div>
+              <div className="text-sm md:text-base font-poppins text-mallorca-palm">SEK</div>
             </div>
           </div>
         </div>
 
-        <div className="text-2xl md:text-3xl font-dancing text-festival-warm">
-          Get ready for the beat! 🎵🌅
+        <div className="text-2xl md:text-3xl font-poppins text-mallorca-white">
+          Wir freuen uns auf Euch! 🏝️🌊
         </div>
       </div>
     </div>

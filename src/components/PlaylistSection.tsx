@@ -13,23 +13,23 @@ const PlaylistSection = () => {
     if (musicWish.trim()) {
       console.log("Music Wish:", musicWish);
       toast({
-        title: "Track Request Submitted!",
-        description: "Thanks for your suggestion! 🎵"
+        title: "Musikwunsch gesendet!",
+        description: "Danke für deinen Vorschlag! 🎵"
       });
       setMusicWish("");
     }
   };
 
   return (
-    <section id="playlist" className="py-20 px-4 bg-gradient-to-b from-festival-night to-black">
+    <section id="playlist" className="py-20 px-4 bg-gradient-to-b from-mallorca-sea to-mallorca-ocean">
       <div className="max-w-4xl mx-auto">
-        <Card className="bg-black/80 backdrop-blur-sm border border-festival-coral/30 shadow-2xl">
+        <Card className="bg-mallorca-white/95 backdrop-blur-sm border-0 shadow-2xl">
           <CardHeader className="text-center">
-            <CardTitle className="text-5xl font-bebas text-festival-sand mb-4 tracking-wider">
-              FESTIVAL PLAYLIST 🎧
+            <CardTitle className="text-5xl font-poppins font-bold text-mallorca-sea mb-4 tracking-wider">
+              MUSIK PLAYLIST 🎧
             </CardTitle>
-            <p className="text-lg text-festival-warm font-poppins">
-              What tracks should pump up the Finca? Drop your House Music requests!
+            <p className="text-lg text-mallorca-sea font-poppins">
+              Welche Musik soll auf der Party laufen? Teilt eure Musikwünsche!
             </p>
           </CardHeader>
           <CardContent className="space-y-6">
@@ -50,17 +50,17 @@ const PlaylistSection = () => {
               <Textarea
                 value={musicWish}
                 onChange={(e) => setMusicWish(e.target.value)}
-                placeholder="Your house tracks, deep vibes, festival anthems..."
+                placeholder="Eure Musikwünsche, Lieblingssongs, Partyhits..."
                 rows={4}
-                className="bg-festival-night/50 border-festival-coral/30 text-white placeholder:text-festival-warm/60 font-roboto"
+                className="bg-mallorca-ocean/10 border-mallorca-palm/30 text-mallorca-sea placeholder:text-mallorca-sea/60 font-poppins"
               />
               <div className="text-center">
                 <Button 
                   onClick={handleSubmit}
-                  className="bg-gradient-to-r from-festival-sunset to-festival-coral hover:from-festival-coral hover:to-festival-glow text-white font-bebas text-lg py-3 px-8 rounded-full shadow-lg tracking-wider transform hover:scale-105 transition-all duration-300"
+                  className="bg-gradient-to-r from-mallorca-pine to-mallorca-palm hover:from-mallorca-palm hover:to-mallorca-pine text-white font-poppins font-bold text-lg py-3 px-8 rounded-full shadow-lg tracking-wider transform hover:scale-105 transition-all duration-300"
                 >
                   <i className="fas fa-music mr-2"></i>
-                  SUBMIT TRACK
+                  MUSIKWUNSCH ABSENDEN
                 </Button>
               </div>
             </div>

@@ -71,16 +71,15 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				festival: {
-					'sunset': '#FF6B35',
-					'coral': '#F7931E',
-					'sand': '#FFD23F',
-					'ocean': '#06A77D',
-					'palm': '#005F56',
-					'sky': '#4A90E2',
-					'night': '#2C3E50',
-					'warm': '#E8B4A0',
-					'glow': '#F39C12'
+				mallorca: {
+					'sea': '#1e40af',
+					'palm': '#16a34a',
+					'sand': '#f59e0b',
+					'ocean': '#0ea5e9',
+					'pine': '#059669',
+					'sky': '#3b82f6',
+					'earth': '#a3a3a3',
+					'white': '#ffffff'
 				}
 			},
 			borderRadius: {
@@ -110,8 +109,8 @@ export default {
 					'50%': { transform: 'translateY(-10px)' }
 				},
 				'pulse-glow': {
-					'0%, 100%': { boxShadow: '0 0 20px rgba(255, 107, 53, 0.3)' },
-					'50%': { boxShadow: '0 0 40px rgba(255, 107, 53, 0.6)' }
+					'0%, 100%': { boxShadow: '0 0 20px rgba(22, 163, 74, 0.3)' },
+					'50%': { boxShadow: '0 0 40px rgba(22, 163, 74, 0.6)' }
 				},
 				'wave': {
 					'0%': { transform: 'rotate(0deg)' },

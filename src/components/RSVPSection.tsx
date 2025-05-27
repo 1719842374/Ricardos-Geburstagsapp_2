@@ -11,39 +11,39 @@ const RSVPSection = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    attending: "",
-    accompanying: ""
+    phone: "",
+    attending: ""
   });
   const { toast } = useToast();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("RSVP Data:", formData);
+    console.log("Contact Data:", formData);
     toast({
-      title: "RSVP gesendet!",
-      description: "Vielen Dank für deine Rückmeldung. Wir freuen uns auf dich! 🎉"
+      title: "Kontaktdaten gesendet!",
+      description: "Vielen Dank für deine Daten. Wir freuen uns auf dich! 🌴"
     });
-    setFormData({ name: "", email: "", attending: "", accompanying: "" });
+    setFormData({ name: "", email: "", phone: "", attending: "" });
   };
 
   return (
-    <section id="rsvp" className="py-20 px-4">
+    <section id="rsvp" className="py-20 px-4 bg-gradient-to-b from-mallorca-ocean/10 to-mallorca-sea/20">
       <div className="max-w-4xl mx-auto">
-        <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-2xl">
+        <Card className="bg-mallorca-white/95 backdrop-blur-sm border-0 shadow-2xl">
           <CardHeader className="text-center">
-            <CardTitle className="text-4xl font-dancing text-party-purple mb-4">
-              Zu-/Absagen ✉️
+            <CardTitle className="text-4xl font-poppins font-bold text-mallorca-sea mb-4">
+              Meine Kontaktdaten 📞
             </CardTitle>
-            <p className="text-lg text-gray-700">
-              Bitte teile uns mit, ob du an der Feier teilnehmen kannst:
+            <p className="text-lg text-mallorca-sea font-poppins">
+              Gerne kannst Du uns hier noch Deine Kontaktdaten hinterlegen
             </p>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <Label htmlFor="name" className="flex items-center gap-2">
-                    <i className="fas fa-user text-party-pink"></i>
+                  <Label htmlFor="name" className="flex items-center gap-2 font-poppins">
+                    <i className="fas fa-user text-mallorca-palm"></i>
                     Name
                   </Label>
                   <Input
@@ -55,8 +55,8 @@ const RSVPSection = () => {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="email" className="flex items-center gap-2">
-                    <i className="fas fa-envelope text-party-purple"></i>
+                  <Label htmlFor="email" className="flex items-center gap-2 font-poppins">
+                    <i className="fas fa-envelope text-mallorca-ocean"></i>
                     E-Mail
                   </Label>
                   <Input
@@ -72,8 +72,20 @@ const RSVPSection = () => {
               
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <Label className="flex items-center gap-2">
-                    <i className="fas fa-calendar-check text-party-blue"></i>
+                  <Label htmlFor="phone" className="flex items-center gap-2 font-poppins">
+                    <i className="fas fa-phone text-mallorca-pine"></i>
+                    Telefon
+                  </Label>
+                  <Input
+                    id="phone"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                    placeholder="Deine Telefonnummer"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label className="flex items-center gap-2 font-poppins">
+                    <i className="fas fa-calendar-check text-mallorca-sea"></i>
                     Teilnahme
                   </Label>
                   <Select value={formData.attending} onValueChange={(value) => setFormData({...formData, attending: value})}>
@@ -86,24 +98,12 @@ const RSVPSection = () => {
                     </SelectContent>
                   </Select>
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="accompanying" className="flex items-center gap-2">
-                    <i className="fas fa-users text-party-green"></i>
-                    Begleitperson
-                  </Label>
-                  <Input
-                    id="accompanying"
-                    value={formData.accompanying}
-                    onChange={(e) => setFormData({...formData, accompanying: e.target.value})}
-                    placeholder="Name der Begleitperson (falls vorhanden)"
-                  />
-                </div>
               </div>
               
               <div className="text-center">
                 <Button 
                   type="submit"
-                  className="bg-gradient-to-r from-party-pink to-party-purple hover:from-party-purple hover:to-party-pink text-white font-bold py-3 px-8 rounded-full shadow-lg"
+                  className="bg-gradient-to-r from-mallorca-palm to-mallorca-pine hover:from-mallorca-pine hover:to-mallorca-palm text-white font-poppins font-bold py-3 px-8 rounded-full shadow-lg"
                 >
                   <i className="fas fa-paper-plane mr-2"></i>
                   Absenden

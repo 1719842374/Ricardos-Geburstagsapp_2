@@ -12,6 +12,7 @@ import PlaylistSection from "@/components/PlaylistSection";
 import PhotoGallery from "@/components/PhotoGallery";
 import Guestbook from "@/components/Guestbook";
 import WishlistSection from "@/components/WishlistSection";
+import RicardoAttributes from "@/components/RicardoAttributes";
 import ChatSection from "@/components/ChatSection";
 
 const Index = () => {
@@ -20,7 +21,7 @@ const Index = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['start', 'event-details', 'hotel-tips', 'rsvp', 'playlist', 'photo-gallery', 'guestbook', 'wishlist', 'chat'];
+      const sections = ['start', 'event-details', 'hotel-tips', 'rsvp', 'playlist', 'photo-gallery', 'guestbook', 'wishlist', 'ricardo-attributes', 'chat'];
       const currentSection = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -76,7 +77,7 @@ const Index = () => {
               </CardHeader>
               <CardContent className="space-y-6">
                 <p className="text-3xl font-poppins text-mallorca-ocean italic font-semibold">
-                  "Viva la Vida - Feier mit uns einen unvergesslichen Abend auf Mallorca!"
+                  "Viva la Vida - Feiert mit uns in Ricardos Geburtstag hinein!"
                 </p>
                 
                 <div className="aspect-video rounded-lg overflow-hidden shadow-lg">
@@ -95,7 +96,7 @@ const Index = () => {
                   onClick={() => document.getElementById('rsvp')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   <i className="fas fa-ticket-alt mr-2"></i>
-                  DABEI SEIN
+                  JETZT ZUSAGEN
                 </Button>
               </CardContent>
             </Card>
@@ -109,11 +110,15 @@ const Index = () => {
         <PhotoGallery />
         <Guestbook />
         <WishlistSection />
+        <RicardoAttributes />
         <ChatSection />
       </main>
 
       <footer className="bg-mallorca-sea/90 text-mallorca-white py-8 text-center relative z-10 border-t border-mallorca-palm/30">
         <p className="font-poppins">© 2025 Mallorca Party. Viva la Vida! 🌴</p>
+        <p className="font-poppins text-sm mt-2">
+          WhatsApp: <strong>+49 1511 7251511</strong> | E-Mail: <strong>barbara.diaz@gmx.de</strong>
+        </p>
       </footer>
     </div>
   );

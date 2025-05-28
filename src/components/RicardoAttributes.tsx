@@ -4,16 +4,15 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 
-const RSVPSection = () => {
+const RicardoAttributes = () => {
   const [formData, setFormData] = useState({
-    name: "",
     email: "",
-    phone: "",
-    attending: ""
+    attribute1: "",
+    attribute2: "",
+    attribute3: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
@@ -25,7 +24,7 @@ const RSVPSection = () => {
     try {
       // Speichere in Datenbank
       const { data, error } = await supabase
-        .from('contact_submissions')
+        .from('ricardo_attributes')
         .insert([formData])
         .select()
         .single();
@@ -40,17 +39,17 @@ const RSVPSection = () => {
           'Authorization': `Bearer ${supabase.supabaseKey}`
         },
         body: JSON.stringify({
-          type: 'contact',
+          type: 'attributes',
           data: data
         })
       });
 
       toast({
-        title: "Kontaktdaten gesendet!",
-        description: "Vielen Dank für deine Daten. Wir freuen uns auf dich! 🌴"
+        title: "Attribute gesendet!",
+        description: "Vielen Dank für deine Einschätzung von Ricardo! 🎉"
       });
       
-      setFormData({ name: "", email: "", phone: "", attending: "" });
+      setFormData({ email: "", attribute1: "", attribute2: "", attribute3: "" });
     } catch (error) {
       console.error('Error:', error);
       toast({
@@ -64,76 +63,73 @@ const RSVPSection = () => {
   };
 
   return (
-    <section id="rsvp" className="py-20 px-4 bg-gradient-to-b from-mallorca-ocean/10 to-mallorca-sea/20">
+    <section id="ricardo-attributes" className="py-20 px-4 bg-gradient-to-b from-mallorca-pine/20 to-mallorca-ocean/10">
       <div className="max-w-4xl mx-auto">
         <Card className="bg-mallorca-white/95 backdrop-blur-sm border-0 shadow-2xl">
           <CardHeader className="text-center">
             <CardTitle className="text-4xl font-poppins font-bold text-mallorca-sea mb-4">
-              Deine Kontaktdaten 📞
+              Schreibt uns Eure Impressionen 💭
             </CardTitle>
             <p className="text-lg text-mallorca-sea font-poppins">
-              Gerne kannst Du uns hier noch Deine Kontaktdaten hinterlegen
+              Welche 3 Attribute fallen Euch zu Ricardo ein?
             </p>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <Label htmlFor="name" className="flex items-center gap-2 font-poppins">
-                    <i className="fas fa-user text-mallorca-palm"></i>
-                    Name
-                  </Label>
-                  <Input
-                    id="name"
-                    value={formData.name}
-                    onChange={(e) => setFormData({...formData, name: e.target.value})}
-                    placeholder="Dein Name"
-                    required
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="email" className="flex items-center gap-2 font-poppins">
-                    <i className="fas fa-envelope text-mallorca-ocean"></i>
-                    E-Mail
-                  </Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({...formData, email: e.target.value})}
-                    placeholder="deine@email.com"
-                    required
-                  />
-                </div>
+              <div className="space-y-2">
+                <Label htmlFor="email" className="flex items-center gap-2 font-poppins">
+                  <i className="fas fa-envelope text-mallorca-ocean"></i>
+                  E-Mail
+                </Label>
+                <Input
+                  id="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({...formData, email: e.target.value})}
+                  placeholder="deine@email.com"
+                  required
+                />
               </div>
               
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid md:grid-cols-3 gap-6">
                 <div className="space-y-2">
-                  <Label htmlFor="phone" className="flex items-center gap-2 font-poppins">
-                    <i className="fas fa-phone text-mallorca-pine"></i>
-                    Telefon
+                  <Label htmlFor="attribute1" className="flex items-center gap-2 font-poppins">
+                    <i className="fas fa-star text-mallorca-palm"></i>
+                    Attribut 1
                   </Label>
                   <Input
-                    id="phone"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                    placeholder="Deine Telefonnummer"
+                    id="attribute1"
+                    value={formData.attribute1}
+                    onChange={(e) => setFormData({...formData, attribute1: e.target.value})}
+                    placeholder="z.B. lustig"
+                    required
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label className="flex items-center gap-2 font-poppins">
-                    <i className="fas fa-calendar-check text-mallorca-sea"></i>
-                    Teilnahme
+                  <Label htmlFor="attribute2" className="flex items-center gap-2 font-poppins">
+                    <i className="fas fa-heart text-mallorca-pine"></i>
+                    Attribut 2
                   </Label>
-                  <Select value={formData.attending} onValueChange={(value) => setFormData({...formData, attending: value})}>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Auswählen..." />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="yes">Ja, ich komme gerne</SelectItem>
-                      <SelectItem value="no">Leider nicht möglich</SelectItem>
-                    </SelectContent>
-                  </Select>
+                  <Input
+                    id="attribute2"
+                    value={formData.attribute2}
+                    onChange={(e) => setFormData({...formData, attribute2: e.target.value})}
+                    placeholder="z.B. hilfsbereit"
+                    required
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="attribute3" className="flex items-center gap-2 font-poppins">
+                    <i className="fas fa-smile text-mallorca-sea"></i>
+                    Attribut 3
+                  </Label>
+                  <Input
+                    id="attribute3"
+                    value={formData.attribute3}
+                    onChange={(e) => setFormData({...formData, attribute3: e.target.value})}
+                    placeholder="z.B. spontan"
+                    required
+                  />
                 </div>
               </div>
               
@@ -144,7 +140,7 @@ const RSVPSection = () => {
                   className="bg-gradient-to-r from-mallorca-palm to-mallorca-pine hover:from-mallorca-pine hover:to-mallorca-palm text-white font-poppins font-bold py-3 px-8 rounded-full shadow-lg"
                 >
                   <i className="fas fa-paper-plane mr-2"></i>
-                  {isSubmitting ? "Wird gesendet..." : "Jetzt zusagen"}
+                  {isSubmitting ? "Wird gesendet..." : "Absenden"}
                 </Button>
               </div>
             </form>
@@ -155,4 +151,4 @@ const RSVPSection = () => {
   );
 };
 
-export default RSVPSection;
+export default RicardoAttributes;

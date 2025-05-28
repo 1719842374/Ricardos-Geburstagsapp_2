@@ -60,7 +60,66 @@ const Index = () => {
 
       <NavigationMenu activeSection={activeSection} />
       
+      {/* Hero Section with Finca Background and Ricardos 60s Geburtstagsfeier over countdown */}
       <main className="relative z-10">
+        <section 
+          className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
+          style={{
+            backgroundImage: "url('https://i.imgur.com/uTmX35f.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat"
+          }}
+        >
+          {/* Dark overlay for better text readability */}
+          <div className="absolute inset-0 bg-black/40"></div>
+          
+          {/* Content */}
+          <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+            {/* Ricardos 60s Geburtstagsfeier text */}
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-dancing text-white mb-8 drop-shadow-2xl">
+              Ricardos 60s Geburtstagsfeier
+            </h1>
+            
+            {/* VIVA LA VIDA */}
+            <h2 className="text-6xl md:text-8xl lg:text-9xl font-bold text-white mb-6 tracking-wider drop-shadow-2xl">
+              VIVA LA VIDA
+            </h2>
+            
+            {/* Date */}
+            <div className="text-4xl md:text-5xl font-bold text-green-400 mb-8 tracking-wider">
+              23. AUGUST 2025
+            </div>
+            
+            {/* Countdown Timer */}
+            <div className="bg-black/60 rounded-2xl p-6 mb-8 backdrop-blur-sm">
+              <div className="grid grid-cols-4 gap-4 text-center">
+                <div>
+                  <div className="text-4xl md:text-6xl font-bold text-white">87</div>
+                  <div className="text-green-400 font-semibold">TAGE</div>
+                </div>
+                <div>
+                  <div className="text-4xl md:text-6xl font-bold text-white">6</div>
+                  <div className="text-green-400 font-semibold">STUNDEN</div>
+                </div>
+                <div>
+                  <div className="text-4xl md:text-6xl font-bold text-white">32</div>
+                  <div className="text-green-400 font-semibold">MIN</div>
+                </div>
+                <div>
+                  <div className="text-4xl md:text-6xl font-bold text-white">37</div>
+                  <div className="text-green-400 font-semibold">SEK</div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Bottom text */}
+            <div className="text-3xl md:text-4xl text-white font-semibold flex items-center justify-center gap-3">
+              Wir freuen uns auf Euch! 🌴 🏊‍♂️
+            </div>
+          </div>
+        </section>
+        
         <HeroBanner />
         
         <section id="start" className="py-20 px-4 bg-gradient-to-b from-mallorca-sea/80 to-mallorca-ocean/60">
@@ -112,6 +171,7 @@ const Index = () => {
 
       <footer className="bg-mallorca-sea/90 text-mallorca-white py-8 text-center relative z-10 border-t border-mallorca-palm/30">
         <p className="font-poppins">© 2025 Mallorca Party. Viva la Vida! 🌴</p>
+        <p className="font-poppins mt-2">WhatsApp: +49 1511 7251511</p>
       </footer>
     </div>
   );

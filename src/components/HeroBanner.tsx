@@ -39,7 +39,7 @@ const HeroBanner = () => {
               onClick={() => document.getElementById('rsvp')?.scrollIntoView({ behavior: 'smooth' })}
             >
               <i className="fas fa-calendar-plus mr-2"></i>
-              JETZT ANMELDEN
+              JETZT ZUSAGEN
             </Button>
             
             <Button 

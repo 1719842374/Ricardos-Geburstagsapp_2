@@ -12,6 +12,7 @@ import PlaylistSection from "@/components/PlaylistSection";
 import PhotoGallery from "@/components/PhotoGallery";
 import Guestbook from "@/components/Guestbook";
 import WishlistSection from "@/components/WishlistSection";
+import RicardoAttributesSection from "@/components/RicardoAttributesSection";
 import ChatSection from "@/components/ChatSection";
 
 const Index = () => {
@@ -20,7 +21,7 @@ const Index = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['start', 'event-details', 'hotel-tips', 'rsvp', 'playlist', 'photo-gallery', 'guestbook', 'wishlist', 'chat'];
+      const sections = ['start', 'event-details', 'hotel-tips', 'rsvp', 'playlist', 'photo-gallery', 'guestbook', 'wishlist', 'ricardo-attributes', 'chat'];
       const currentSection = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -71,14 +72,10 @@ const Index = () => {
                 </CardTitle>
                 <CardDescription className="text-xl text-mallorca-sea font-poppins">
                   <i className="fas fa-glass-cheers text-mallorca-palm mr-2"></i>
-                  Kommt und feiert mit uns einen unvergesslichen Abend auf Mallorca!
+                  Viva la Vida - Feiert mit uns in Ricardos Geburtstag hinein!
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
-                <p className="text-3xl font-poppins text-mallorca-ocean italic font-semibold">
-                  "Viva la Vida - Feier mit uns einen unvergesslichen Abend auf Mallorca!"
-                </p>
-                
                 <div className="aspect-video rounded-lg overflow-hidden shadow-lg">
                   <iframe 
                     src="https://player.vimeo.com/video/1082618091?h=a35bbd7944&badge=0&autopause=0" 
@@ -109,6 +106,7 @@ const Index = () => {
         <PhotoGallery />
         <Guestbook />
         <WishlistSection />
+        <RicardoAttributesSection />
         <ChatSection />
       </main>
 

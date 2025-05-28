@@ -44,7 +44,7 @@ const WishlistSection = () => {
             </p>
             <div className="bg-gradient-to-r from-mallorca-ocean/10 to-mallorca-sea/10 rounded-2xl p-8">
               <p className="text-xl text-mallorca-sea font-poppins leading-relaxed mb-4">
-                <strong>Am Geburtstag, 24.08., könnt ihr gerne ab 11:00 Uhr zu einem kleinen Frühstück und einen entspannten Ausklang vorbeischauen.</strong>
+                <strong>Am Geburtstag, 24.08., könnt ihr gerne ab 11:00 Uhr zu einem kleinen Frühstück und einem entspannten Ausklang vorbeischauen.</strong>
               </p>
             </div>
             <div className="flex justify-center space-x-4 text-4xl">

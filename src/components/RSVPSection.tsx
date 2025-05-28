@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const RSVPSection = () => {
   const [formData, setFormData] = useState({
@@ -14,16 +15,35 @@ const RSVPSection = () => {
     phone: "",
     attending: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Contact Data:", formData);
-    toast({
-      title: "Kontaktdaten gesendet!",
-      description: "Vielen Dank für deine Daten. Wir freuen uns auf dich! 🌴"
-    });
-    setFormData({ name: "", email: "", phone: "", attending: "" });
+    setIsSubmitting(true);
+
+    try {
+      const { error } = await supabase
+        .from('contact_submissions')
+        .insert([formData]);
+
+      if (error) throw error;
+
+      toast({
+        title: "Kontaktdaten gesendet!",
+        description: "Vielen Dank für deine Daten. Wir freuen uns auf dich! 🌴"
+      });
+      setFormData({ name: "", email: "", phone: "", attending: "" });
+    } catch (error) {
+      console.error('Error submitting contact data:', error);
+      toast({
+        title: "Fehler",
+        description: "Es gab ein Problem beim Senden deiner Daten. Bitte versuche es erneut.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -32,7 +52,7 @@ const RSVPSection = () => {
         <Card className="bg-mallorca-white/95 backdrop-blur-sm border-0 shadow-2xl">
           <CardHeader className="text-center">
             <CardTitle className="text-4xl font-poppins font-bold text-mallorca-sea mb-4">
-              Meine Kontaktdaten 📞
+              Deine Kontaktdaten 📞
             </CardTitle>
             <p className="text-lg text-mallorca-sea font-poppins">
               Gerne kannst Du uns hier noch Deine Kontaktdaten hinterlegen
@@ -103,10 +123,11 @@ const RSVPSection = () => {
               <div className="text-center">
                 <Button 
                   type="submit"
+                  disabled={isSubmitting}
                   className="bg-gradient-to-r from-mallorca-palm to-mallorca-pine hover:from-mallorca-pine hover:to-mallorca-palm text-white font-poppins font-bold py-3 px-8 rounded-full shadow-lg"
                 >
                   <i className="fas fa-paper-plane mr-2"></i>
-                  Absenden
+                  {isSubmitting ? "Wird gesendet..." : "Absenden"}
                 </Button>
               </div>
             </form>

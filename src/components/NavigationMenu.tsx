@@ -18,18 +18,11 @@ const NavigationMenu = ({ activeSection }: NavigationMenuProps) => {
     { id: "photo-gallery", label: "Fotos", icon: "fas fa-images" },
     { id: "guestbook", label: "Impressionen", icon: "fas fa-comments" },
     { id: "wishlist", label: "Geschenke", icon: "fas fa-gift" },
-    { id: "ricardo-attributes", label: "Attribute", icon: "fas fa-heart" },
-    { id: "morgen-danach", label: "Morgen Danach", icon: "fas fa-sun" },
     { id: "chat", label: "Chat", icon: "fas fa-comments" },
   ];
 
   const scrollToSection = (sectionId: string) => {
-    // Handle special case for "Der Morgen Danach" which is part of wishlist section
-    if (sectionId === "morgen-danach") {
-      document.getElementById('wishlist')?.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
-    }
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
     setIsOpen(false);
   };
 
@@ -58,18 +51,18 @@ const NavigationMenu = ({ activeSection }: NavigationMenuProps) => {
             
             {/* Navigation Items zentriert */}
             <div className="flex-1 flex justify-center">
-              <ul className="flex space-x-1 flex-wrap">
+              <ul className="flex space-x-1">
                 {menuItems.map((item) => (
                   <li key={item.id}>
                     <button
                       onClick={() => scrollToSection(item.id)}
-                      className={`px-3 py-2 rounded-lg transition-all duration-300 flex items-center space-x-2 font-poppins text-xs tracking-wider ${
+                      className={`px-4 py-3 rounded-lg transition-all duration-300 flex items-center space-x-2 font-poppins text-sm tracking-wider ${
                         activeSection === item.id
                           ? 'bg-gradient-to-r from-mallorca-pine to-mallorca-palm text-white shadow-lg'
                           : 'text-mallorca-white/80 hover:bg-mallorca-palm/20 hover:text-mallorca-white'
                       }`}
                     >
-                      <i className={`${item.icon} text-xs`}></i>
+                      <i className={`${item.icon} text-sm`}></i>
                       <span>{item.label}</span>
                     </button>
                   </li>

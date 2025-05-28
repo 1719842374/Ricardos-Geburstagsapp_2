@@ -41,7 +41,7 @@ const PhotoGallery = () => {
               Fotogalerie 📸
             </CardTitle>
             <p className="text-lg text-mallorca-sea font-poppins">
-              Wenn Du noch Fotos aus alten Zeiten mit Ricardo hast, kannst Du sie gerne hier hochladen 😊 oder uns per Email senden (barbara.diaz@gmx.de/oder WhatsApp)
+              Wenn Du noch Fotos aus alten Zeiten mit Ricardo hast, kannst Du sie gerne hier hochladen 😊
             </p>
           </CardHeader>
           <CardContent className="space-y-6">

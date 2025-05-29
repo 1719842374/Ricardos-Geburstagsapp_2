@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -22,6 +21,8 @@ const RicardoAttributes = () => {
     setIsSubmitting(true);
 
     try {
+      console.log('Submitting attributes:', formData);
+      
       // Speichere in Datenbank
       const { data, error } = await supabase
         .from('ricardo_attributes')
@@ -29,7 +30,12 @@ const RicardoAttributes = () => {
         .select()
         .single();
 
-      if (error) throw error;
+      if (error) {
+        console.error('Database error:', error);
+        throw error;
+      }
+
+      console.log('Attributes saved successfully:', data);
 
       // Sende E-Mail über Supabase Function
       const { error: emailError } = await supabase.functions.invoke('send-email', {
@@ -41,19 +47,25 @@ const RicardoAttributes = () => {
 
       if (emailError) {
         console.error('Email error:', emailError);
+        // E-Mail-Fehler nicht als kritisch behandeln
+        toast({
+          title: "Attribute gespeichert!",
+          description: "Deine Einschätzung wurde gespeichert. E-Mail-Benachrichtigung konnte nicht gesendet werden.",
+          variant: "default"
+        });
+      } else {
+        toast({
+          title: "Attribute gesendet!",
+          description: "Vielen Dank für deine Einschätzung von Ricardo! 🎉"
+        });
       }
-
-      toast({
-        title: "Attribute gesendet!",
-        description: "Vielen Dank für deine Einschätzung von Ricardo! 🎉"
-      });
       
       setFormData({ email: "", attribute1: "", attribute2: "", attribute3: "" });
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Error details:', error);
       toast({
-        title: "Fehler",
-        description: "Bitte versuche es später noch einmal.",
+        title: "Fehler beim Speichern",
+        description: `Fehler: ${error.message || 'Unbekannter Fehler'}`,
         variant: "destructive"
       });
     } finally {

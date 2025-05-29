@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -23,6 +22,8 @@ const RSVPSection = () => {
     setIsSubmitting(true);
 
     try {
+      console.log('Submitting form data:', formData);
+      
       // Speichere in Datenbank
       const { data, error } = await supabase
         .from('contact_submissions')
@@ -30,7 +31,12 @@ const RSVPSection = () => {
         .select()
         .single();
 
-      if (error) throw error;
+      if (error) {
+        console.error('Database error:', error);
+        throw error;
+      }
+
+      console.log('Data saved successfully:', data);
 
       // Sende E-Mail über Supabase Function
       const { error: emailError } = await supabase.functions.invoke('send-email', {
@@ -42,19 +48,25 @@ const RSVPSection = () => {
 
       if (emailError) {
         console.error('Email error:', emailError);
+        // E-Mail-Fehler nicht als kritisch behandeln
+        toast({
+          title: "Kontaktdaten gespeichert!",
+          description: "Deine Daten wurden gespeichert. E-Mail-Benachrichtigung konnte nicht gesendet werden.",
+          variant: "default"
+        });
+      } else {
+        toast({
+          title: "Kontaktdaten gesendet!",
+          description: "Vielen Dank für deine Daten. Wir freuen uns auf dich! 🌴"
+        });
       }
-
-      toast({
-        title: "Kontaktdaten gesendet!",
-        description: "Vielen Dank für deine Daten. Wir freuen uns auf dich! 🌴"
-      });
       
       setFormData({ name: "", email: "", phone: "", attending: "" });
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Error details:', error);
       toast({
-        title: "Fehler",
-        description: "Bitte versuche es später noch einmal.",
+        title: "Fehler beim Speichern",
+        description: `Fehler: ${error.message || 'Unbekannter Fehler'}`,
         variant: "destructive"
       });
     } finally {

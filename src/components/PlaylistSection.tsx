@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -17,6 +16,8 @@ const PlaylistSection = () => {
     setIsSubmitting(true);
 
     try {
+      console.log('Submitting music wish:', musicWish);
+      
       // Speichere in Datenbank
       const { data, error } = await supabase
         .from('music_wishes')
@@ -24,7 +25,12 @@ const PlaylistSection = () => {
         .select()
         .single();
 
-      if (error) throw error;
+      if (error) {
+        console.error('Database error:', error);
+        throw error;
+      }
+
+      console.log('Music wish saved successfully:', data);
 
       // Sende E-Mail über Supabase Function
       const { error: emailError } = await supabase.functions.invoke('send-email', {
@@ -36,19 +42,25 @@ const PlaylistSection = () => {
 
       if (emailError) {
         console.error('Email error:', emailError);
+        // E-Mail-Fehler nicht als kritisch behandeln
+        toast({
+          title: "Musikwunsch gespeichert!",
+          description: "Dein Musikwunsch wurde gespeichert. E-Mail-Benachrichtigung konnte nicht gesendet werden.",
+          variant: "default"
+        });
+      } else {
+        toast({
+          title: "Musikwunsch gesendet!",
+          description: "Danke für deinen Vorschlag! 🎵"
+        });
       }
-
-      toast({
-        title: "Musikwunsch gesendet!",
-        description: "Danke für deinen Vorschlag! 🎵"
-      });
       
       setMusicWish("");
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Error details:', error);
       toast({
-        title: "Fehler",
-        description: "Bitte versuche es später noch einmal.",
+        title: "Fehler beim Speichern",
+        description: `Fehler: ${error.message || 'Unbekannter Fehler'}`,
         variant: "destructive"
       });
     } finally {

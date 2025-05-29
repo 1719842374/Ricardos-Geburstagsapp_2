@@ -32,18 +32,17 @@ const RSVPSection = () => {
 
       if (error) throw error;
 
-      // Sende E-Mail
-      await fetch('/supabase/functions/v1/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${supabase.supabaseKey}`
-        },
-        body: JSON.stringify({
+      // Sende E-Mail über Supabase Function
+      const { error: emailError } = await supabase.functions.invoke('send-email', {
+        body: {
           type: 'contact',
           data: data
-        })
+        }
       });
+
+      if (emailError) {
+        console.error('Email error:', emailError);
+      }
 
       toast({
         title: "Kontaktdaten gesendet!",

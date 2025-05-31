@@ -1,0 +1,506 @@
+:root {
+    --primary-color: #ff6b6b;
+    --secondary-color: #4ecdc4;
+    --accent-color: #ffe66d;
+    --dark-color: #292f36;
+    --light-color: #f7f7f7;
+    --text-color: #424242;
+    --border-radius: 8px;
+    --box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    --transition: background-color 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: var(--dark-color);
+    background-color: #fff;
+}
+
+#login {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+}
+
+#login h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+#login p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: var(--dark-color);
+}
+
+#login input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+}
+
+#login button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+#login button:hover {
+    background-color: #e05656;
+}
+
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    padding: 10px;
+    text-align: center;
+}
+
+.logo img {
+    height: 50px;
+    border-radius: 50%;
+}
+
+nav {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 5px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0 10px;
+}
+
+nav li {
+    margin-right: 5px;
+}
+
+nav a {
+    display: block;
+    color: var(--dark-color);
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: var(--border-radius);
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+nav a .icon {
+    margin-right: 5px;
+    color: var(--primary-color);
+}
+
+nav a:hover {
+    background-color: var(--light-color);
+}
+
+.banner {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+}
+
+.banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.banner-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+.banner-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.banner-date {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.countdown-box {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h3 {
+    color: var(--secondary-color);
+    margin-top: 30px;
+}
+
+h4 {
+    color: var(--primary-color);
+}
+
+p {
+    margin-bottom: 15px;
+    color: var(--dark-color);
+}
+
+.special-note {
+    background-color: var(--accent-color);
+    padding: 15px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    font-weight: 600;
+    margin: 20px 0;
+}
+
+.icon {
+    color: var(--primary-color);
+    margin-right: 8px;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    margin: 20px 0;
+    border-radius: var(--border-radius);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+iframe.map {
+    width: 100%;
+    height: 300px;
+    border: none;
+    border-radius: var(--border-radius);
+    margin: 20px 0;
+}
+
+#chat-frame {
+    width: 100%;
+    height: 600px;
+    border: none;
+    border-radius: var(--border-radius);
+}
+
+a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a:hover {
+    color: #3db8af;
+}
+
+ol, ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+form {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-family: inherit;
+}
+
+input[type="file"] {
+    padding: 10px;
+    border: 1px dashed #ddd;
+}
+
+button, input[type="submit"] {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+button:hover, input[type="submit"]:hover {
+    background-color: #e05656;
+}
+
+.hotel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.hotel-card {
+    background-color: #fff;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.hotel-img {
+    height: 80px;
+    background-color: var(--light-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hotel-img i {
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+.hotel-content {
+    padding: 20px;
+}
+
+.hotel-title {
+    color: var(--dark-color);
+    margin-bottom: 10px;
+}
+
+.hotel-description {
+    color: #666;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.hotel-link {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: inline-block;
+}
+
+.hotel-link i {
+    margin-left: 5px;
+    transition: transform 0.3s;
+}
+
+.hotel-link:hover i {
+    transform: translateX(5px);
+}
+
+#imageContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.media-item {
+    position: relative;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+}
+
+.media-item img, .media-item video {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.media-item button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 0, 0, 0.7);
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.media-item button:hover {
+    background-color: red;
+    transform: scale(1.1);
+}
+
+.guestbook-entry {
+    background-color: var(--light-color);
+    padding: 15px;
+    border-radius: var(--border-radius);
+    margin-top: 20px;
+}
+
+.guestbook-entry p {
+    margin-bottom: 10px;
+}
+
+.guestbook-entry img {
+    max-width: 100%;
+    border-radius: var(--border-radius);
+    margin-top: 10px;
+}
+
+#chatContainer {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.action-button {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: white;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    margin: 20px 0;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.action-button:hover {
+    background-color: #3db8af;
+}
+
+footer {
+    background-color: var(--dark-color);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+    .banner-title {
+        font-size: 2rem;
+    }
+
+    .container {
+        padding: 30px 15px;
+    }
+
+    nav ul {
+        padding: 0 5px;
+    }
+
+    nav a {
+        font-size: 0.8rem;
+        padding: 8px 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .banner {
+        height: 200px;
+    }
+
+    .banner-title {
+        font-size: 1.8rem;
+    }
+
+    .banner-date {
+        font-size: 1rem;
+    }
+
+    .countdown-box {
+        font-size: 1rem;
+        padding: 8px 15px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    nav a {
+        padding: 6px 8px;
+        font-size: 0.75rem;
+    }
+
+    nav a .icon {
+        margin-right: 3px;
+    }
+}
